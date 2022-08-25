@@ -8,12 +8,17 @@
     "start": "next start",
     "lint": "next lint",
     "build:next": "next build"
-
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.2",
+    "axios": "^0.27.2",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.34.2",
+    "sass": "^1.54.5"
   },
   "devDependencies": {
     "@types/node": "18.7.13",
