@@ -1,9 +1,14 @@
 import axios from "axios";
+// const controller = new AbortController();
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
 const axiosService = axios.create({
   baseURL: process.env.apiUrl,
   headers: {
     "content-type": "application/json",
   },
+  // signal: controller.signal,
+  cancelToken: source.token,
 });
 axiosService.interceptors.request.use(
   function (config) {
@@ -15,7 +20,7 @@ axiosService.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
+// axiosService.defaults.timeout = 400;
 // Add a response interceptor
 axiosService.interceptors.response.use(
   function (response) {
@@ -29,4 +34,8 @@ axiosService.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+export const cancelApi = () => {
+  // controller.abort();
+  source.cancel("Operation canceled by the user.");
+};
 export default axiosService;

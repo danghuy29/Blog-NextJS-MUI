@@ -18,3 +18,32 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+.slide_left_to_right {
+  animation-name: slide_left_to_right;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.slide_right_to_left {
+  animation-name: slide_right_to_left;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes slide_left_to_right {
+  from {
+    transform: translateX(-70%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide_right_to_left {
+  from {
+    transform: translateX(70%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
