@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@mui/material";
-import { BaseLayout } from "@src/components/layouts";
-import { darkTheme } from "@src/themes";
+import { lightTheme } from "@src/themes";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import type { ReactElement, ReactNode } from "react";
@@ -13,10 +12,9 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout =
-    Component.getLayout ?? ((page) => <BaseLayout>{page}</BaseLayout>);
+  const getLayout = Component.getLayout ?? ((page) => <>{page}</>);
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={lightTheme}>
       {getLayout(<Component {...pageProps} />)}
     </ThemeProvider>
   );

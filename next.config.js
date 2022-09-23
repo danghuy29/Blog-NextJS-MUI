@@ -4,12 +4,15 @@ const nextConfig = {
   sassOptions: {
     prependData: `@import "@styles/base.module"; @import "@styles/common.mixin";`,
   },
-  env:{
+  env: {
     githubId: process.env.GITHUB_ID,
     githubSecret: process.env.GITHUB_SECRET,
     googleId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-    apiUrl: process.env.NEXT_API_URL
-  }
-}
+    apiUrl: process.env.NEXT_API_URL,
+  },
+  images: {
+    domains: ["4kwallpapers.com", "modactivity.travelerwp.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

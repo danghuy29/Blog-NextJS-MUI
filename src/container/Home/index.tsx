@@ -1,17 +1,16 @@
-import { Box, Button } from "@mui/material";
-import { useRouter } from "next/router";
+import { Box } from "@mui/material";
+import { brown } from "@mui/material/colors";
+import EventList from "@src/components/Events/EventsList";
+import { getAllEvents } from "@src/constants/dummyData";
 import { Fragment } from "react";
 const HomeContainer = () => {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push("/render");
-  };
+  const data = getAllEvents();
   return (
     <Fragment>
-      <Box bgcolor="#ccc" minHeight="calc(100vh - 81px)">
-        <Button variant="contained" onClick={handleClick}>
-          Click me
-        </Button>
+      <Box minHeight="100vh" display="flex" alignItems="center">
+        <Box bgcolor={brown[100]} py={10}>
+          <EventList eventList={data} />
+        </Box>
       </Box>
     </Fragment>
   );
